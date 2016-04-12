@@ -32,14 +32,50 @@ public class Organize {
 				
 			}
 		}
+		
+		//----------------------------------------------
+		//Make it one 
+		for(int i=0;i<row;i++){
+			for(int j=0;j<column;j++){
+				if(i==j){
+					matrix = multinv(i,j,column,matrix);
+					int newRow = search(i,j,matrix,row);
+					if(newRow!=-1){
+						matrix = multinv(newRow,j,column,matrix);
+						matrix=add(i,j,row,column,matrix,newRow);
+					}
+				}
+			}
+		}
+		
 		for(int i=0;i<row;i++){
 			for(int j=0;j<column;j++){
 				System.out.print(matrix[i][j]+"\t");
 			}
 			System.out.println("\n");
 		}
+		
 	}
 	
+	
+	
+	public static double[][] add(int i,int j, int row, int column, double[][] matrix,int newRow){
+		double[][] newMatrix = new double[row][column];
+		for(int a=0;a<column;a++){
+			newMatrix[i][a]=matrix[i][a]*(-1);
+			matrix[newRow][a]=matrix[newRow][a]+newMatrix[i][a];
+		}
+		return matrix;
+	}
+	
+	public static double[][] multinv(int i,int j, int column,double[][] matrix){
+		double cof = matrix[i][j];//coefficient
+		double inv = 1/cof;//inverse
+		for(int a=0;a<column;a++){
+			matrix[i][a]=matrix[i][a]*inv;
+		}
+		return matrix;
+	}
 	//gives us back the row
 	public static int search(int i,int j,double[][] matrix,int row){
 		for(int a=i+1;a<row;a++){
