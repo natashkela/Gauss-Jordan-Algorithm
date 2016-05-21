@@ -1,4 +1,4 @@
-package gauss;
+
 import java.util.Scanner;
 public class gaussJordan {
 	public static void main(String[] args){
