@@ -1,8 +1,6 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 public class Gauss{
-	
-    //-----------------------------------------
 	public static final double EPSILON = 1e-7;
     public final int num;
     public static double[][] newNum;
