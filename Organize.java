@@ -1,4 +1,3 @@
-package gauss;
 import java.util.Scanner;
 public class Organize {
 	public static void main(String[] args){
