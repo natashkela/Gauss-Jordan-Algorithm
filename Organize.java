@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public class Organize {
+
 	public static void main(String[] args){
+
 		Scanner read = new Scanner(System.in);
 		System.out.println("Please enter the number of variables");
 		int var = read.nextInt();
@@ -16,7 +18,9 @@ public class Organize {
 				matrix[i][j] = read.nextDouble();
 			}
 		}
+
 		System.out.println(matrix[1][3]); //0th index
+
 		for(int i=0;i<row;i++){
 			for(int j=0;j<column;j++){
 				if(i==j){
@@ -31,7 +35,6 @@ public class Organize {
 				
 			}
 		}
-		
 		//----------------------------------------------
 		//Make it one 
 		for(int i=0;i<row;i++){
@@ -46,7 +49,6 @@ public class Organize {
 				}
 			}
 		}
-		
 		for(int i=0;i<row;i++){
 			for(int j=0;j<column;j++){
 				System.out.print(matrix[i][j]+"\t");
@@ -55,9 +57,6 @@ public class Organize {
 		}
 		
 	}
-	
-	
-	
 	public static double[][] add(int i,int j, int row, int column, double[][] matrix,int newRow){
 		double[][] newMatrix = new double[row][column];
 		for(int a=0;a<column;a++){
@@ -66,7 +65,6 @@ public class Organize {
 		}
 		return matrix;
 	}
-	
 	public static double[][] multinv(int i,int j, int column,double[][] matrix){
 		double cof = matrix[i][j];//coefficient
 		double inv = 1/cof;//inverse
@@ -84,7 +82,6 @@ public class Organize {
 		}
 		return -1; //all of the elements in row+1 and the same column are 0 we do not need to swap it.
 	}
-	
 	public static double[][] swap(int result, double[][] matrix, int i, int j, int column, int row){
 		/*
 		 * int temp = a;
